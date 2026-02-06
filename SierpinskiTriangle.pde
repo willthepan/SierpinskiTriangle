@@ -1,17 +1,20 @@
-let baseLimit = 20;
+int baseLimit = 20;
 
-function setup() {
-  createCanvas(600, 520);
+void settings() {
+  size(1000, 800);
+}
+
+void setup() {
   noStroke();
 }
 
-function draw() {
+void draw() {
   background(10);
-  sierpinski(50, height - 50, width - 100);
+  sierpinski(100, height - 100, width - 200);
   noLoop();
 }
 
-function sierpinski(x, y, len) {
+void sierpinski(float x, float y, float len) {
   if (len <= baseLimit) {
     fill(map(len, baseLimit, width, 50, 255), 150, 255 - map(len, baseLimit, width, 50, 255));
     triangle(

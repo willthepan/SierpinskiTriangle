@@ -1,20 +1,20 @@
 int baseLimit = 20;
 
-void settings() {
+public void settings() {
   size(600, 520);
 }
 
-void setup() {
+public void setup() {
   noStroke();
 }
 
-void draw() {
+public void draw() {
   background(10);
   sierpinski(50, height - 50, width - 100);
   noLoop();
 }
 
-void sierpinski(float x, float y, float len) {
+public void sierpinski(float x, float y, float len) {
   if (len <= baseLimit) {
     fill(map(len, baseLimit, width, 50, 255), 150, 255 - map(len, baseLimit, width, 50, 255));
     triangle(

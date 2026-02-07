@@ -1,28 +1,37 @@
 int baseLimit = 20;
 
-void settings() {
-  size(1000, 800);
-}
-
-void setup() {
+public void setup()
+{
+  size(1200, 900);
   noStroke();
 }
 
-void draw() {
-  background(10);
-  sierpinski(100, height - 100, width - 200);
+public void draw()
+{
+  background(0);
+  sierpinski(100, height - 100, 800);
   noLoop();
 }
 
-void sierpinski(float x, float y, float len) {
-  if (len <= baseLimit) {
-    fill(map(len, baseLimit, width, 50, 255), 150, 255 - map(len, baseLimit, width, 50, 255));
+public void mouseDragged()
+{
+  baseLimit = constrain(mouseX / 10, 5, 80);
+  redraw();
+}
+
+public void sierpinski(int x, int y, int len) 
+{
+  if (len <= baseLimit)
+  {
+    fill(255);
     triangle(
       x, y,
       x + len, y,
       x + len / 2, y - len
     );
-  } else {
+  }
+  else
+  {
     sierpinski(x, y, len / 2);
     sierpinski(x + len / 2, y, len / 2);
     sierpinski(x + len / 4, y - len / 2, len / 2);
